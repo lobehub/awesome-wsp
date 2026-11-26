@@ -5,7 +5,7 @@ import re
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = (ROOT / "README.md", ROOT / "STUDIES.md", ROOT / "CONTRIBUTING.md")
+PAGES = (*ROOT.glob("*.md"), *ROOT.glob("docs/**/*.md"), *ROOT.glob("examples/**/*.md"))
 
 
 def check_links(page):

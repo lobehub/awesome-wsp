@@ -11,6 +11,7 @@ In **weight-space programming**, an agent can read a neural network’s paramete
 ## Contents
 
 - [Start here](#start-here)
+  - [Run the maze weights](#run-the-maze-weights)
 - [Compare experimental conditions](#compare-experimental-conditions)
 - [Papers by direction](#papers-by-direction)
   - [Reading weights](#reading-weights)
@@ -32,6 +33,10 @@ A coding agent sets the weights of a small transformer so one pass through its s
 
 **WeightBench** · *Test where the method breaks*<br>
 The benchmark spans 42 tasks. Try comparing the same agent on two of them, such as recognizing a policy from its weights and deciding whether a requested edit is possible. The task registry spells out what the agent can see. [Paper][weightbench] · [Evaluation harness](https://github.com/Aayush-Marasini/WeightBench)
+
+### Run the maze weights
+
+Run the released LoopedWSP transformer on a 7×7 maze. One CPU command prints the path and checks it against breadth-first search. [Five-minute example](examples/maze/README.md) · [Try the browser demo](https://mbzuai-oryx.github.io/LoopedWSP/demo/maze.html)
 
 ## Compare experimental conditions
 
@@ -61,6 +66,8 @@ The first three studies below withhold execution feedback while weights are writ
 *Figure 5 · Subham Kundu.* Black outlines mark measured heads. In the left panel, Claude named head 3.1 in all five attempts, but also named several heads outside the outline. [Original figure][figure-20953] · [CC BY 4.0][cc-by]
 
 ### Editing checkpoints
+
+**How can two edits repair the same failure?** The original Qwen study blocked edits to the output layer. An independent replication allowed them and found a different repair. Compare the practice budgets, permitted weights, MATH-500 baselines and ablations. [Read the two Qwen experiments side by side](docs/qwen-loop-repairs.md)
 
 - [WeightCode](https://arxiv.org/abs/2611.25476) - A frozen LLM writes a program that reads an existing network and computes an update. The authors rerun that program on independently trained vision models to test whether the procedure transfers. [Code](https://github.com/Gen-Verse/WeightCode).
 - [WSP-Scope](https://arxiv.org/abs/2611.09382) - Six of 16 editing searches kept the original checkpoint. The authors also test successful patches on tasks outside the editing objective, giving a view of both search reliability and transfer. [Experiments](https://github.com/WSP-Scope/WSP-Scope-Project).

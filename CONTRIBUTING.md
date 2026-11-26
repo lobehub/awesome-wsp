@@ -41,3 +41,11 @@ npx --yes awesome-lint@2.3.0 README.md
 python3 scripts/check_catalog.py
 python3 scripts/star_history.py --check
 ```
+
+## External link maintenance
+
+The [weekly link check](https://github.com/lobehub/awesome-wsp/actions/workflows/external-links.yml) runs on Tuesdays at 03:43 UTC and can also be started manually. It checks HTTP destinations in Markdown and bibliography entries, including externally hosted figures, code and weight downloads. The Actions summary lists affected files and lines.
+
+Two consecutive HTTP 404 or 410 responses mark a link as missing and fail the job. Rate limits are reported separately and defer the remaining URLs on that host. Access restrictions, network failures and server errors are listed for review. The report measures URL availability. Inspect the target content before replacing a source.
+
+Run the same check locally with `python3 scripts/check_external_links.py`.
