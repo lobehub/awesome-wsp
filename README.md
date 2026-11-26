@@ -1,4 +1,4 @@
-<h1 align="center">Awesome Weight-Space Programming</h1>
+<h1 align="center">Awesome WSP (Weight-Space Programming)</h1>
 
 <p align="center">
   <a href="https://github.com/lobehub/awesome-wsp#readme"><img src="assets/cover.png" width="1140" alt="Awesome Weight-Space Programming. Two weight matrices show the original network and a sparse edit highlighted in orange."></a>
