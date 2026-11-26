@@ -1,0 +1,29 @@
+name: Suggest a study
+description: Recommend a paper, benchmark or research project for the WSP index.
+title: "[Study] "
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Study title
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Primary source URL
+      description: Link the paper, DOI or author-maintained project.
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Weight operation and evaluation
+      description: What could the programmer observe or change, and how was the result tested?
+    validations:
+      required: true
+  - type: input
+    id: artifacts
+    attributes:
+      label: Code, weights or logs
+      description: Include an author-maintained artifact if available.

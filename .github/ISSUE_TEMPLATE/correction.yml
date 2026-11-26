@@ -1,0 +1,17 @@
+name: Correct an entry
+description: Report a broken link, incorrect citation, figure credit or research claim.
+title: "[Correction] "
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Affected page or entry
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Correction and evidence
+      description: Describe the problem and link a replacement source when available.
+    validations:
+      required: true

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 195" role="img" aria-labelledby="t d">
+  <title id="t">GitHub star history</title>
+  <desc id="d">Weekly observations from 2026-11-26 to 2026-11-26. Latest count: 0.</desc>
+  <rect width="720" height="195" rx="8" fill="#f8f4e9"/>
+  <g font-family="system-ui,sans-serif" fill="#182e51">
+    <text x="32" y="35" font-size="21">GitHub stars</text>
+    <text x="684" y="35" text-anchor="end" font-size="20">0</text>
+    <path d="M60 60H684 M60 150H684" stroke="#c5c5bc" fill="none"/>
+    <text x="45" y="65" text-anchor="end">1</text><text x="45" y="155" text-anchor="end">0</text>
+    <text x="60" y="177">2026-11-26</text>
+    <polyline points="60.0,150.0" stroke="#25466b" stroke-width="3" fill="none"/>
+    <circle cx="60.0" cy="150.0" r="4.5" fill="#bf4f28"/>
+  </g>
+</svg>
