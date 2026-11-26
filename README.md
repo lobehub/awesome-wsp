@@ -1,6 +1,8 @@
-<h1 align="center">
+<h1 align="center">Awesome Weight-Space Programming</h1>
+
+<p align="center">
   <a href="https://github.com/lobehub/awesome-wsp#readme"><img src="assets/cover.png" width="1140" alt="Awesome Weight-Space Programming. Two weight matrices show the original network and a sparse edit highlighted in orange."></a>
-</h1>
+</p>
 
 <p align="center">
   <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
