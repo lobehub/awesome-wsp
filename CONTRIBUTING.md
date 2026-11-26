@@ -20,6 +20,12 @@ Homepage entries use this format:
 - [Paper title](primary-source-url) - One sentence on the operation and its evaluation. [Code](author-repository-url).
 ```
 
+## Reuse and attribution
+
+The original WSP collection, its annotations and its original illustrations are dedicated to the public domain under [CC0 1.0 Universal](LICENSE). By contributing original catalog text, you agree to release it under CC0.
+
+Paper figures, linked publications, third-party code and model weights retain their respective authors’ terms. Keep the figure credit and license with any copy. For externally hosted figures, keep the link to the original publication.
+
 ## Local checks
 
 Run these commands from the repository root. The same checks run on pull requests.
