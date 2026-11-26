@@ -4,7 +4,7 @@ A curated reading list on **weight-space programming (WSP)**, the study of how a
 
 A maze solver makes the idea concrete. In LoopedWSP, a coding agent writes the weight matrices of a small transformer so that one pass through its shared block advances a search through the maze. At inference time, that transformer solves new mazes on its own. Editing a pretrained model poses a different problem. The editor must locate a useful change in weights whose original roles it did not design. [LoopedWSP project](https://mbzuai-oryx.github.io/LoopedWSP/) · [WeightCode paper](https://arxiv.org/abs/2611.25476)
 
-[Start here](#start-here) · [Reading weights](#reading-weights) · [Editing checkpoints](#editing-checkpoints) · [Writing networks](#writing-networks) · [Benchmarks](#benchmarks) · [Foundations](#foundations) · [BibTeX](references.bib)
+[Start here](#start-here) · [Reading weights](#reading-weights) · [Editing checkpoints](#editing-checkpoints) · [Writing networks](#writing-networks) · [Benchmarks](#benchmarks) · [Further studies](STUDIES.md) · [Foundations](#foundations) · [BibTeX](references.bib)
 
 ## Start here
 
@@ -41,6 +41,15 @@ A maze solver makes the idea concrete. In LoopedWSP, a coding agent writes the w
 - **IWIBench** tests ten editing objectives under bounded tensor access and a fixed rollout budget. A separate validator reapplies each patch and measures both the requested behavior and preservation of other capabilities. [Preprint](https://arxiv.org/abs/2611.08647)
 
 When comparing results, check what the programmer could see before submission. Writing weights once from a task description, revising them against validation scores, and inspecting a running checkpoint give the programmer different amounts of information. For an edit, look for both a held-out test of the new behavior and a test of what the original network could already do.
+
+## Further studies
+
+The extended reading list covers four questions.
+
+- **What survives replication?** Compare alternate repairs for reasoning loops, precision controls for corrupted weights and random-search baselines for self-editing. [Replications and controls](STUDIES.md#replications-and-controls)
+- **Which edits transfer?** Follow a retrieval edit across CLIP checkpoints, compare rounding strategies on a quantized CNN, or see how two metrics disagree after a diffusion edit. [Editing language and vision models](STUDIES.md#editing-language-and-vision-models)
+- **Does the policy work outside its design setting?** Read a tractor field test alongside simulated robot repairs, held-out game levels and formally verified policies. [Control, games and verification](STUDIES.md#control-games-and-verification)
+- **When does a simple baseline suffice?** Compare written weights with a classifier trained on 256 images, a standard branching rule for scheduling and closed-form heads for frozen encoders. [Scientific models and decision systems](STUDIES.md#scientific-models-and-decision-systems)
 
 ## Foundations
 
