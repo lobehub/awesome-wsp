@@ -1,10 +1,46 @@
-# Further studies in weight-space programming
+# Weight-space programming research index
 
-[Back to the main reading list](README.md)
+[Reading guide](README.md) · [BibTeX](references.bib)
 
-These studies extend the introductory list with replications, comparisons and applications. For each experiment, the annotation identifies a control, baseline or test condition that matters when interpreting the result.
+**Weight operations** · [Read](#reading-weights) · [Edit](#editing-checkpoints) · [Write](#writing-networks) · [Evaluate](#benchmarks)
 
-[Replications and controls](#replications-and-controls) · [Editing language and vision models](#editing-language-and-vision-models) · [Control, games and verification](#control-games-and-verification) · [Scientific models and decision systems](#scientific-models-and-decision-systems)
+**Further studies** · [Replications](#replications-and-controls) · [Language and vision](#editing-language-and-vision-models) · [Control and games](#control-games-and-verification) · [Scientific applications](#scientific-models-and-decision-systems)
+
+## Original experiments
+
+In *Sparks of Weight-Space Programming*, Takehi, Teoh, Zhang and Khattab ask an agent to identify policies, repair failures and build networks. Read the Qwen experiment alongside its logs. The agent could run Python and inspect forward-pass results while searching for the edit that reduced repeated reasoning. [Research article](https://rikiyat.github.io/blog/weight-space-programming/) · [Experiment logs](https://github.com/RikiyaT/lm_understand-logs) · [Edited checkpoint](https://huggingface.co/RikiyaT/Qwen3.5-0.8B-weight-space-programming)
+
+## Reading weights
+
+- **Auditing zero-shot weight reading.** In an exploratory study, an LLM sees the weights of small image classifiers as text, with no forward passes. When CIFAR-10 labels are permuted, it still finds a numerical split in the output layer but assigns the wrong meanings to the class pairs it interprets. The permutation is a useful control for familiarity with public datasets. [Preprint](https://arxiv.org/abs/2611.08070)
+- **Mixed Signals.** On EEG and ECG networks, the authors test three abilities separately. The agent can repair some deliberately planted faults and construct networks from a few subjects' data. Identifying the original task from weights alone proves unreliable. [Preprint](https://arxiv.org/abs/2611.13758)
+
+## Editing checkpoints
+
+- **WSP-Scope** — An agent searches for localized edits to two sizes of Qwen3.5. Six of 16 searches keep the original checkpoint. The authors test accepted edits on held-out questions and on tasks beyond the editing objective. [Paper](https://arxiv.org/abs/2611.09382) · [Code](https://github.com/WSP-Scope/WSP-Scope-Project)
+
+- **WeightCode** — An agent writes an executable program that reads a trained network and computes a weight update. Rerunning the program on independently trained vision transformers tests whether the editing procedure transfers. Copying the original numerical update provides a control. [Paper](https://arxiv.org/abs/2611.25476) · [Code](https://github.com/Gen-Verse/WeightCode)
+
+- **Language Models Can Rewrite Their Own Weights** — A 27B model inspects its own answers, runs candidate edits and selects changes using practice problems. The authors measure held-out accuracy and recovery of a damaged copy. Smaller models in the same family struggle in this setup. [Preprint](https://arxiv.org/abs/2611.21885)
+
+## Writing networks
+
+- **LoopedWSP** — An algorithmic task and a looped transformer architecture. Explicit weights that implement repeated computation for mazes, Sudoku and other reasoning tasks. The release includes the generated weights. [Research article](https://mbzuai-oryx.github.io/LoopedWSP/) · [Code and weights](https://github.com/mbzuai-oryx/LoopedWSP)
+
+- **Interpretable weight-space programming** — An agent writes model code and receives validation scores across revisions. Transformers for tasks such as addition and sorting, and encoding models whose features can be inspected to study neural responses. [Paper](https://arxiv.org/abs/2611.18114) · [Code, prompts and logs](https://github.com/csinva/weight-space-programming-autoresearch)
+
+- **Weight-Space Programming Doesn't Need Transformers** — A small set of labeled science questions and freedom to choose the architecture. Sparse lookup-based models for the AI2 Reasoning Challenge. The comparison measures accuracy, parameter count and inference time. [Paper](https://arxiv.org/abs/2611.22055) · [Code and models](https://github.com/effl-lab/Weight-Space-Programming)
+
+- **Zero-shot WSP for structured datasets** — A small labeled table and a fixed feed-forward architecture, with no execution feedback. Literal weights and biases for prediction or classification. Rotated synthetic data test whether the programmer can discover structure oblique to the input coordinates. [Preprint](https://arxiv.org/abs/2611.19292)
+
+- **Physics2Weight** — A governing equation and its initial and boundary conditions. A neural approximation to a PDE solution. The four-equation study reports both solution error and how closely predictions satisfy the governing equation, which can diverge on nonlinear problems. [Preprint](https://arxiv.org/abs/2611.12954)
+
+## Benchmarks
+
+- **WeightBench** spans 42 tasks in five tracks covering reading, repair, construction, recognition of impossible edits and data-free compression. Consult the per-track scores and the number of tasks each model attempted before comparing aggregate results. [Paper](https://arxiv.org/abs/2611.18553) · [Task registry and harness](https://github.com/Aayush-Marasini/WeightBench)
+- **IWIBench** tests ten editing objectives under bounded tensor access and a fixed rollout budget. A separate validator reapplies each patch and measures both the requested behavior and preservation of other capabilities. [Preprint](https://arxiv.org/abs/2611.08647)
+
+When comparing results, check what the programmer could see before submission. Writing weights once from a task description, revising them against validation scores, and inspecting a running checkpoint give the programmer different amounts of information. For an edit, look for both a held-out test of the new behavior and a test of what the original network could already do.
 
 ## Replications and controls
 
@@ -61,3 +97,8 @@ These studies extend the introductory list with replications, comparisons and ap
 - **Closed-form classifiers on frozen encoders.** An LLM helped design programs that fit classifier heads to labeled examples on a frozen RoBERTa encoder. Results on six held-out datasets temper the stronger comparison with fine-tuning on the eleven datasets used to develop the recipe. [Preprint](https://arxiv.org/abs/2611.33972v1)
 
 - **WeightLoop.** A fixed editor writes a reusable program that updates a predictor as measurements arrive. Offline replay tests whether those persistent changes improve the ranking of candidates for the next measurement. [Preprint](https://arxiv.org/abs/2611.07319v1)
+
+## Foundations
+
+- **Tracr** compiles a program written in RASP into transformer weights. Knowing the source algorithm gives researchers a reference for checking what an interpretability method recovers from the compiled model. [Publication](https://deepmind.google/research/publications/22295/) · [Compiler](https://github.com/google-deepmind/tracr)
+- **AdderBoard** asks entrants to build the smallest transformer that adds two ten-digit integers. Its submissions and verifier let readers inspect different weight constructions for the same precisely specified task. [Challenge and verifier](https://github.com/anadim/AdderBoard)
