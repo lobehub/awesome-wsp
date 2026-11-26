@@ -11,6 +11,7 @@ In **weight-space programming**, an agent can read a neural network’s paramete
 ## Contents
 
 - [Start here](#start-here)
+- [Compare experimental conditions](#compare-experimental-conditions)
 - [Papers by direction](#papers-by-direction)
   - [Reading weights](#reading-weights)
   - [Editing checkpoints](#editing-checkpoints)
@@ -31,6 +32,18 @@ A coding agent sets the weights of a small transformer so one pass through its s
 
 **WeightBench** · *Test where the method breaks*<br>
 The benchmark spans 42 tasks. Try comparing the same agent on two of them, such as recognizing a policy from its weights and deciding whether a requested edit is possible. The task registry spells out what the agent can see. [Paper][weightbench] · [Evaluation harness](https://github.com/Aayush-Marasini/WeightBench)
+
+## Compare experimental conditions
+
+The first three studies below withhold execution feedback while weights are written. The last two let the programmer test candidate edits. Read the final column alongside the feedback budget when comparing results.
+
+| Study                                                            | Examples or inputs available               | Can the programmer run the target?        | Can scores guide revisions?                                | How is the result tested?                                                    |
+| ---------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [Medical image classifiers](https://arxiv.org/html/2611.12066v1) | Task and CNN architecture, no images       | No                                        | No, one reply                                              | Test AUC against the same CNN trained on labeled images                      |
+| [Structured datasets](https://arxiv.org/abs/2611.19292)          | Small labeled table and fixed architecture | No                                        | No, the weights are sealed before scoring                  | Classification or regression performance against fitted baselines            |
+| [4-bit CNN repair][quantization-paper]                           | Float and rounded weights, no images       | No                                        | No, one answer per layer in this protocol                  | CIFAR-10 test accuracy against ordinary rounding and calibrated quantization |
+| [WSP-Scope](https://wsp-scope.github.io/)                        | Development questions for the target task  | Yes, through a budgeted forward-pass tool | Yes, candidate edits are evaluated on development examples | Held-out accuracy and transfer to other tasks                                |
+| [Tractor guidance](https://arxiv.org/html/2611.21958v1)          | Path specification and a simulated tractor | Yes, in simulation                        | Yes, within a limited simulation budget                    | Tracking error on unseen paths and in a real-tractor field test              |
 
 <a name="further-studies"></a>
 <a name="browse-the-collection"></a>

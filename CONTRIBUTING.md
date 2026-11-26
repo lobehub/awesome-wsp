@@ -9,10 +9,16 @@ Look for a concrete operation on neural weights. What parameters could the progr
 ## Preparing a pull request
 
 1. Search the [index](STUDIES.md) and [bibliography](references.bib) for the title and arXiv ID or DOI. A new version of an existing study usually belongs in the existing entry.
-2. Add the study to the most specific section of the index. Link to the paper or author-maintained project, describe the weight operation, and name the test or control. Attribute measured results to the authors. Add code, logs or weights when available.
-3. Add the matching BibTeX record for a research study. Check title, author order, year, URL and version against the primary source. For a new representative example, add a short entry to the appropriate direction on the [homepage](README.md#papers-by-direction) and update the study count when the collection grows.
+2. Add the study to the most specific section of the index. Use the full published title as the first link, then give the author credit, year and a one-sentence reading note on the weight operation and its evaluation. Attribute measured results to the authors. Add code, logs or weights when available.
+3. Add the matching BibTeX record for a research study. Check title, author order, year, URL and version against the primary source. Use the same primary URL and version in both files. Run `python3 scripts/check_catalog.py --update-count` to refresh the homepage count after adding or removing a study. The Foundations resources are listed separately. For a representative example, also add a short entry to the appropriate direction on the [homepage](README.md#papers-by-direction).
 4. For a figure, identify the authors, figure number and source version. Include alt text, a direct link to the original figure in the paper and the applicable credit or license. Check redistribution terms before adding a copy to the repository.
 5. In the pull request, identify the changed entries and link to the evidence you checked. For a correction, include the previous value and its replacement.
+
+Index entries use this format:
+
+```markdown
+- [Full published title](primary-source-url) · *First Author et al., 2026*. One sentence on the experiment. [Code](author-repository-url)
+```
 
 Homepage entries use this format:
 
