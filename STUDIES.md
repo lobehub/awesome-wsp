@@ -56,6 +56,8 @@ When comparing results, check what the programmer could see before submission. W
 
 - [Do We Really Need an LLM for Weight-Space Programming? A Deterministic Forward-Only Paradigm and Its Capability Boundaries](https://arxiv.org/abs/2611.34612v1) · *Lin Yao, 2026*. Giving a deterministic router and a 27B language model the same editing operators isolates the contribution of operator selection.
 
+- [Weight-Space Audit of MIT-p50c and DNA Weight Editing (SGNE-CC) on Qwen3.5-0.8B at a 32,768-Token Generation Limit](https://doi.org/10.5281/zenodo.24235218) · *Igor M. Zhuk, 2026*. Re-testing the MIT-p50c Qwen3.5-0.8B patch under greedy decoding without presence penalty separates sampling effects from weight edits, while a norm-preserving rotation of `down_proj`, `out_proj`, and one GatedDeltaNet gate row preserves greedy accuracy at 32k tokens. [Code and traces](https://github.com/Nondual-Observer/dna-weight-editing)
+
 ## Editing language and vision models
 
 - [Can a Frontier LLM Repair a Quantized Network by Tool-Free Weight-Space Programming?](https://arxiv.org/abs/2611.33031v1) · *Steffen Urban, 2026*. Given the original CNN and its rounded copy, Opus recovered CIFAR-10 accuracy from 60.4% to 77.95% when allowed one answer per layer. [Repository](https://github.com/urbste/weight-space-programming-ptq)
@@ -73,6 +75,8 @@ When comparing results, check what the programmer could see before submission. W
 - [Training Vision Models for LLM-Driven Weight-Space Programming](https://arxiv.org/abs/2611.26408v1) · *Timo Ropinski and Sebastian Kranz, 2026*. More than 2,600 edits to vision models let the authors measure how target-model training affects later edit success, side effects and held-out accuracy. [Project](https://viscom.uni-ulm.de/wsp)
 
 - [Reparameterizing Your Object Detectors for Weight Space Programming](https://arxiv.org/abs/2611.29882v1) · *Chien-Yao Wang, 2026*. Expanding and folding detector layers tests how the choice of parameterization affects edits across 17 detectors, including settings that preserve inference cost. [Repository](https://github.com/WongKinYiu/ODWSP)
+
+- [SGNE-CC v2: Editing 205 Weight Columns in DeepSeek-R1-Distill-Qwen-1.5B Improves Greedy Accuracy and Reduces Unfinished Responses](https://doi.org/10.5281/zenodo.24398165) · *Igor M. Zhuk, 2026*. Rotating 205 MLP `down_proj` columns without changing column norms raises pooled greedy accuracy from 60.5% to 69.5% and cuts unfinished responses from 28.9% to 3.9% across 1,054 evaluation prompts at 32k tokens. [Code and traces](https://github.com/Nondual-Observer/deepseek-r1-1.5b-sgne-cc-v2)
 
 ## Control, games and verification
 
